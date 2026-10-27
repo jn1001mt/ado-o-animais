@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI
 from app.schemas.animal_schema import AnimalCreate, AnimalResponse
 
@@ -11,7 +12,17 @@ animais = []
 proximo_id = 1
 
 
-@app.post("/animais", response_model=AnimalResponse, status_code=201)
+@app.get("/", summary="Início")
+def inicio():
+    return {"mensagem": "API Adoção de Animais funcionando!"}
+
+
+@app.post(
+    "/animais",
+    response_model=AnimalResponse,
+    status_code=201,
+    summary="Cadastrar Animal"
+)
 def cadastrar_animal(animal: AnimalCreate):
     global proximo_id
 
