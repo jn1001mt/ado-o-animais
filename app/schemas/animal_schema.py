@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class AnimalCreate(BaseModel):
@@ -7,6 +7,18 @@ class AnimalCreate(BaseModel):
     raca: str
     idade: int
     porte: str
+
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "nome": "Rex",
+                "especie": "Cachorro",
+                "raca": "Caramelo",
+                "idade": 3,
+                "porte": "Médio"
+            }
+        }
+    )
 
 
 class AnimalResponse(BaseModel):
