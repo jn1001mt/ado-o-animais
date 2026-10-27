@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI
 from app.schemas.animal_schema import AnimalCreate, AnimalResponse
 
@@ -18,8 +17,7 @@ def cadastrar_animal(animal: AnimalCreate):
 
     novo_animal = {
         "id": proximo_id,
-        **animal.model_dump(),
-        "status": "Disponível"
+        **animal.model_dump()
     }
 
     animais.append(novo_animal)

@@ -1,11 +1,13 @@
 from pydantic import BaseModel
 
+
 class AnimalCreate(BaseModel):
     nome: str
     especie: str
     raca: str
     idade: int
     porte: str
+
 
 class AnimalResponse(BaseModel):
     id: int
@@ -14,4 +16,4 @@ class AnimalResponse(BaseModel):
     raca: str
     idade: int
     porte: str
-    status: str
+    status: str = "Disponível"
